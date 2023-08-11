@@ -1,5 +1,8 @@
 .img-thumbnail {
-    height: 10em;
+    object-fit: contain;
+    width: 15%;
+    border:0;
+    mix-blend-mode: color-burn;
   }
   .profile {
     height: 1em;

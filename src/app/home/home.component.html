@@ -1,23 +1,42 @@
-<nav class="w-100 row align-text-bottom">
-  <div class="col-2">
-    <img
-      src="https://th.bing.com/th/id/R.149921039e9b0307183ed9b679efb013?rik=%2fhxf2aiVo%2b3%2b0w&pid=ImgRaw&r=0"
-      class="img-thumbnail"
-      alt=""
-    />
-  </div>
-  <div class="col-8 align-items-end d-flex">
-    <h3>Office of Housing - CARD</h3>
-  </div>
+<div class="full-screen">
+    <nav class="w-100 row align-text-bottom">
+    <div class="col-10 align-items-end d-flex">
+        <h3>
+            <img
+            src="https://logo.clearbit.com/seattle.gov"
+            class="img-thumbnail"
+            alt=""
+        />
+        Office of Housing - CARD</h3>
+    </div>
 
-  <div class="col-2 align-items-end d-flex">
-    <p>
-      <img
-        src="https://th.bing.com/th/id/R.967c3e60086c366532dfa8bde04b2521?rik=hu5p%2bKi25aOmGg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_508630.png&ehk=MXqzP36PsdrYbSf4SNhdxMRKRZ2tjnKAd3kgLsB%2fsns%3d&risl=&pid=ImgRaw&r=0"
-        class="profile"
-        alt=""
-      />Peter Nguyen
-    </p>
-  </div>
-</nav>
-<router-outlet></router-outlet>
+    <div class="col-2 align-items-end d-flex float-right">
+        <a data-bs-toggle="offcanvas" href="#" role="button" aria-controls="Open profile" (click)="toggleProfile()">
+            <img
+                    src="https://th.bing.com/th/id/R.967c3e60086c366532dfa8bde04b2521?rik=hu5p%2bKi25aOmGg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_508630.png&ehk=MXqzP36PsdrYbSf4SNhdxMRKRZ2tjnKAd3kgLsB%2fsns%3d&risl=&pid=ImgRaw&r=0"
+                    class="profile d-block d-sm-none"
+                    alt=""
+                />
+            <p class="d-none d-sm-block">
+                <img
+                    src="https://th.bing.com/th/id/R.967c3e60086c366532dfa8bde04b2521?rik=hu5p%2bKi25aOmGg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_508630.png&ehk=MXqzP36PsdrYbSf4SNhdxMRKRZ2tjnKAd3kgLsB%2fsns%3d&risl=&pid=ImgRaw&r=0"
+                    class="profile"
+                    alt=""
+                />Peter Nguyen
+            </p>
+        </a>
+    </div>
+    </nav>
+    <router-outlet></router-outlet>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="profileTab" aria-labelledby="profileTab">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Hello Peter</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" (click)="toggleProfile()"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,1 +1,26 @@
-<p>property works!</p>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let header of tableHeaders ? tableHeaders : []"
+          [class.sortable]="header.sort"
+          [class.filterable]="header.filter"
+        >
+          {{ header?.name }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let property of propertyList ? propertyList : []">
+        <td (click)="openProperty(property.id)">{{ property?.name }}</td>
+        <td (click)="openProperty(property.id)">{{ property?.address1 }}</td>
+        <td (click)="openProperty(property.id)">{{ property?.city }}</td>
+        <td (click)="openProperty(property.id)">{{ property?.state }}</td>
+        <td (click)="openProperty(property.id)">{{ property?.zip }}</td>
+        <td>
+          <a href="{{ property?.website }}">{{ property?.website }}</a>
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>

@@ -6,18 +6,34 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PropertyComponent } from './Pages/property/property.component';
 import { UnitComponent } from './Pages/unit/unit.component';
 
-const routes: Routes = [{ path: '', component: HomeComponent, children:[{
-  path:'', component: DashboardComponent
-},
-{
-  path:'property', component:PropertyComponent
-},{
-  path:'unit', component: UnitComponent
-}] },
-{ path: 'login', component: LoginComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+      },
+      {
+        path: 'property',
+        component: PropertyComponent,
+      },
+      {
+        path: 'unit',
+        component: UnitComponent,
+      },
+      {
+        path: 'property/:id',
+        component: UnitComponent,
+      },
+    ],
+  },
+  { path: 'login', component: LoginComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

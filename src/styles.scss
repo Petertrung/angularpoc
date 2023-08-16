@@ -2,14 +2,23 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
 
 .full-screen {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
     background-color: rgb(235, 235, 235);
   }
 
-//   nav{
-//     border-bottom: 2px black solid;
-//     height: 10%;
-// }
+  fieldset {
+    border: 2px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+fieldset > legend{
+    float: none;
+    width: initial;
+    padding: 4px;
+}

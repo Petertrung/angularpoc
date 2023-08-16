@@ -1,21 +1,19 @@
 <div class="full-screen">
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-light row align-text-bottom"
+      class="navbar bg-light w-100"
     >
-      <div class="col-10 align-items-end d-flex">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand ms-4" href="/">
           <img
             src="https://logo.clearbit.com/seattle.gov"
-            width="30"
-            height="30"
+            width="40"
+            height="40"
             class="d-inline-block align-top"
             alt=""
           />
           Office of Housing - CARD
         </a>
-      </div>
   
-      <div class="col-2 d-md-flex justify-content-md-end">
+      <div class="col-2 d-md-flex justify-content-md-end me-3">
         <a
           data-bs-toggle="offcanvas"
           href="javascript:void(0);"
@@ -29,21 +27,42 @@
             alt=""
           />
           <p class="d-none d-sm-block">
-            <img
-              src="https://th.bing.com/th/id/R.967c3e60086c366532dfa8bde04b2521?rik=hu5p%2bKi25aOmGg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_508630.png&ehk=MXqzP36PsdrYbSf4SNhdxMRKRZ2tjnKAd3kgLsB%2fsns%3d&risl=&pid=ImgRaw&r=0"
-              class="profile"
-              alt=""
-            />Peter Nguyen
+            <i class="bi-person"></i>Peter Nguyen
           </p>
         </a>
       </div>
     </nav>
-    <router-outlet></router-outlet>
+    <div class="row">
+      <div class="d-flex flex-column flex-shrink-0 p-3 col-md-2 bg-light d-none d-sm-none d-md-none d-lg-block" style="width: 280px;">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/property" class="nav-link">
+              Property
+            </a>
+          </li>
+          <li>
+            <a href="/unit" class="nav-link">
+              Unit
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+      <div class="p-4 col-md-10">
+          <router-outlet></router-outlet>
+      </div>
+    </div>
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
       id="profileTab"
       aria-labelledby="profileTab"
+      data-bs-scroll="false"
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Hello Peter</h5>
@@ -61,8 +80,10 @@
           have chosen. Like, text, images, lists, etc.
         </div>
       </div>
-      <button type="button" class="btn btn-danger" data-bs-toggle="button">
-        Sign Out
-      </button>
+      <div class="p-3 w-100">
+        <button type="button" class="btn btn-danger w-100" data-bs-toggle="button">
+            Sign Out
+          </button>
+      </div>
     </div>
   </div>

@@ -1,0 +1,130 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="/property">Property</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Property Details</li>
+    </ol>
+  </nav>
+<h2>Property Details</h2>
+<fieldset class="rounded">
+    <legend>Basic Info</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Property Name</li>
+                <li class="list-group-item">Property Name (Prior)</li>
+                <li class="list-group-item">Parcel Identification Number</li>
+                <li class="list-group-item">Master Use Permit</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Structure(s) Number</li>
+                <li class="list-group-item">Tower(s) Freestanding Number</li>
+                <li class="list-group-item">Tower(s) On Podium Number</li>
+                <li class="list-group-item">Website</li>
+            </ul>
+        </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="rounded">
+    <legend>Address</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Property Address</li>
+                <li class="list-group-item">City</li>
+                <li class="list-group-item">State</li>
+                <li class="list-group-item">Zip</li>
+                <li class="list-group-item">Country</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Property Address(Prior)</li>
+            </ul>
+        </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="rounded">
+    <legend>Parcel Numbers</legend>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Tax Accessor Parcel Numbers
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let num of parcelNum ? parcelNum : []">
+                    <td>
+                        {{num}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="rounded">
+    <legend>Demolition</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Permit</li>
+                <li class="list-group-item">Permit Application Complete Date</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Permit 4 or more Unit Structure</li>
+                <li class="list-group-item">Occupied Within 18 months</li>
+            </ul>
+        </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="rounded">
+    <legend>Inspection</legend>
+    <div class="row">
+        <div class="col-md-4">
+            <ul>
+                <li class="list-group-item">Start Date</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li class="list-group-item">End Date</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li class="list-group-item">Status</li>
+            </ul>
+        </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="rounded">
+    <legend>Property Owner</legend>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Owner</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li class="list-group-item">Owner General Partner/ Managing Member</li>
+            </ul>
+        </div>
+    </div>
+  </fieldset>
+
+  

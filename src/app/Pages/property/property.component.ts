@@ -1,6 +1,18 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface propertyList {
+  [key: string]: number | string;
+  id: number;
+  name: string;
+  address1: string;
+  city: string;
+  state: string;
+  zip: string;
+  website: string;
+}
+
+
 @Component({
   selector: 'app-property',
   templateUrl: './property.component.html',
@@ -161,12 +173,39 @@ export class PropertyComponent {
     { name: 'State', field: 'state', sort: true, filter: true },
     { name: 'Zip', field: 'zip', sort: true, filter: true },
     { name: 'Website', field: 'website', sort: false, filter: false },
-    { name: 'Action', field: 'website', sort: false, filter: false },
+    { name: 'Structure', field: 'structure', sort: false, filter: false },
+    { name: 'Action', field: 'action', sort: false, filter: false },
   ];
 
   constructor(private router: Router) {}
+  public sortField = 'name';
+  public sortDirection = 'asc';
 
   openProperty(num: number) {
     this.router.navigate(['/property/' + num]);
   }
+
+  // get filteredData(): propertyList[] {
+  //   return this.data
+  //     .sort((a, b) => {
+  //       if (a[this.sortField] < b[this.sortField]) {
+  //         return this.sortDirection === 'asc' ? -1 : 1;
+  //       }
+  //       if (a[this.sortField] > b[this.sortField]) {
+  //         return this.sortDirection === 'asc' ? 1 : -1;
+  //       }
+  //       return 0;
+  //     });
+  // }
+
+  sort(field: string) {
+    console.log(field)
+    if (this.sortField === field) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortField = field;
+      this.sortDirection = 'asc';
+    }
+  }
+
 }

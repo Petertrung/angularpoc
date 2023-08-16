@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PropertyComponent } from './Pages/property/property.component';
+import { PropertProfileComponent } from './Pages/property/Profile/propert-profile/propert-profile.component';
 import { UnitComponent } from './Pages/unit/unit.component';
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'property/:id',
-        component: UnitComponent,
+        component: PropertProfileComponent,
       },
     ],
   },

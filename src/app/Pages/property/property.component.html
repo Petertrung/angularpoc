@@ -1,5 +1,28 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active">Property</li>
+  </ol>
+</nav>
 <div class="card shadow p-5">
-  <h1 class="mb-3">Properties</h1>
+  <div class="row">
+    <h1 class="mb-3 col-9">Properties</h1>
+    <button class="btn btn-secondary col-1 mb-3">
+      <i class="bi bi-plus-lg"></i> Add
+    </button>
+    <div class="col-2 mb-3 d-flex">
+      <div class="input-group">
+        <i class="bi bi-search input-group-text" id="basic-addon1"></i>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="Search up table"
+        />
+      </div>  
+    </div>
+  </div>
   <table class="table table-hover table-bordered table-responsive w-100">
     <thead>
       <tr>
@@ -8,16 +31,20 @@
           (click)="sort(header.field)"
         >
           {{ header?.name }}
+          <span *ngIf="header?.sort">
+            <i class="bi bi-arrow-up" [ngClass]="{'d-none': sortField !== header?.field || sortDirection !== 'asc'}"></i>
+            <i class="bi bi-arrow-down" [ngClass]="{'d-none': sortField !== header?.field || sortDirection !== 'desc'}"></i>
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let property of propertyList ? propertyList : []">
-        <td (click)="openProperty(property.id)">{{ property?.name }}</td>
-        <td (click)="openProperty(property.id)">{{ property?.address1 }}</td>
-        <td (click)="openProperty(property.id)">{{ property?.city }}</td>
-        <td (click)="openProperty(property.id)">{{ property?.state }}</td>
-        <td (click)="openProperty(property.id)">{{ property?.zip }}</td>
+      <tr *ngFor="let property of propertyList ?? []; index as i">
+        <td (click)="openProperty(property?.id)">{{ property?.name }}</td>
+        <td (click)="openProperty(property?.id)">{{ property?.address1 }}</td>
+        <td (click)="openProperty(property?.id)">{{ property?.city }}</td>
+        <td (click)="openProperty(property?.id)">{{ property?.state }}</td>
+        <td (click)="openProperty(property?.id)">{{ property?.zip }}</td>
         <td>
           <a href="{{ property?.website }}">{{ property?.website }}</a>
         </td>
@@ -25,9 +52,15 @@
           <i class="bi bi-arrow-up-right-square"></i>
         </td>
         <td class="d-flex justify-content-evenly">
-          <i class="bi bi-eye pe-auto" (click)="openProperty(property.id)"></i>
-          <i class="bi bi-pencil"></i>
-          <i class="bi bi-trash" data-toggle="modal" data-target="#exampleModal"></i>
+          <a class="btn-link" href="javascript:void(0);" (click)="openProperty(property.id)">
+            <i class="bi bi-eye pe-auto" ></i>
+          </a>
+          <a href="javascript:void(0);">
+            <i class="bi bi-pencil"></i>
+          </a>
+          <a class="btn-link" href="javascript:void(0);" (click)="openModal(i)">
+            <i class="bi bi-trash"></i>
+          </a>
         </td>
       </tr>
       <nav aria-label="Page navigation example">
@@ -44,16 +77,18 @@
 </div>
 
 <!-- Delete Confirmation -->
-<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+<div class="modal" tabindex="-1" role="dialog" id="propertyModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
         <h5>Are you sure you want to delete:</h5>
-        <p>Property</p>
+        <p *ngIf="current">Property: {{current.name}}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary"(click)="closeModal('delete')">Delete</button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal('cancel')">
+          Cancel
+        </button>
       </div>
     </div>
   </div>

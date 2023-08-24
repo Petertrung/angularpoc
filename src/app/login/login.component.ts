@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { UtilityService } from '../utility.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(private util:UtilityService){}
 
-  updateName() {
-    this.router.navigate(['/']);
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  login(url: string) {
+    let email = this.loginForm?.get('email')?.value
+    if(email){
+      this.util.login(email)
+      this.util.updateRoute(url)
+    }
   }
 }
 

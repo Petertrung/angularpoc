@@ -1,4 +1,5 @@
 import { Component , Renderer2} from '@angular/core';
+import { Router, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,15 @@ import { Component , Renderer2} from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
+
+  path: string | null = null;
+
+  ngOnInit() {
+    const tree = this.router.parseUrl(this.router.url);
+    const firstSegment: UrlSegment = tree.root.children['primary'].segments?.[0];
+    this.path = firstSegment.path;
+  }
 
   toggleProfile(){
     const button = document.getElementById("profileTab");

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxsModule } from '@ngxs/store';
+import { UtilityService } from './utility.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { NgChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { PropertyComponent } from './Pages/property/property.component';
 import { UnitComponent } from './Pages/unit/unit.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PropertProfileComponent } from './Pages/property/Profile/propert-profile/propert-profile.component';
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -28,9 +31,12 @@ import { PropertProfileComponent } from './Pages/property/Profile/propert-profil
     AppRoutingModule,
     NgbModule,
     NgChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    NgxsModule.forRoot([], {})
   ],
-  providers: [],
+  providers: [UtilityService, NgbTooltip],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

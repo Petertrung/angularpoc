@@ -46,7 +46,6 @@ export class PropertyComponent {
 
   ngOnInit(): void {
     this.getList().subscribe(data => {
-      console.log('hi')
       this.propertyList = data;
     });
     this.formModal = document.getElementById("propertyModal");

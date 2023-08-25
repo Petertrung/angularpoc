@@ -27,6 +27,8 @@ export class HomeComponent {
         this.renderer.addClass(button, 'show');
       }
   }
-
+  }
+  signOut(){
+    
   }
 }

@@ -14,7 +14,10 @@ import { PropertyComponent } from './Pages/property/property.component';
 import { UnitComponent } from './Pages/unit/unit.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { PropertProfileComponent } from './Pages/property/Profile/propert-profile/propert-profile.component';
-import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap'
+import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
+import { HelpPageComponent } from './Pages/help-page/help-page.component';
+import { StructureComponent } from './Pages/structure/structure.component';
+import { UploadComponent } from './Pages/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap'
     PropertyComponent,
     UnitComponent,
     DashboardComponent,
-    PropertProfileComponent
+    PropertProfileComponent,
+    HelpPageComponent,
+    StructureComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

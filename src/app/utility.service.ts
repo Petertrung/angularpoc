@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Store } from "@ngxs/store"
 import { UserActions } from 'src/store/actions/user.action';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UtilityService{
     constructor(private router: Router , private store: Store) {}
 

@@ -14,6 +14,12 @@ export class UploadComponent {
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';
   header: any[] = []
+  tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
+  activeTab = this.tabs[0];
+
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
 
   onFileChange(evt: any) {
     /* wire up file reader */

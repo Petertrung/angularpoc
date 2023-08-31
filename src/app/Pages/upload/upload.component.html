@@ -2,52 +2,51 @@
     <div>
         <input type="file" (change)="onFileChange($event)" multiple="false" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
     </div>
-	<div class="card shadow p-4 m-3 overflow-auto" *ngIf="data.length">
+	<div class="card shadow p-4 m-3 overflow-auto" *ngIf="tabs.length">
         <ul class="nav nav-tabs">
             <li class="nav-item" *ngFor="let tab of tabs">
               <a class="nav-link" [class.active]="activeTab === tab" (click)="setActiveTab(tab)">{{tab}}</a>
             </li>
           </ul>
           <div class="tab-content">
-            <div *ngIf="activeTab === 'Tab 1'" class="tab-pane active">Content for Tab 1</div>
-            <div *ngIf="activeTab === 'Tab 2'" class="tab-pane active">Content for Tab 2</div>
-            <div *ngIf="activeTab === 'Tab 3'" class="tab-pane active">Content for Tab 3</div>
+             <ng-container *ngFor="let tab of tabs; index as i" >
+                <div *ngIf="activeTab === tab" class="tab-pane active">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th *ngFor="let val of header">{{val}}</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                        <tr *ngFor="let row of data[i]">
+                            {{row}}
+                            <td>
+                                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[0]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[1]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[2]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[3]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[4]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[5]}}" required>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[6]}}" required>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                    </table>
+                </div> 
+             </ng-container>
           </div>
-        <table class="table">
-            <thead>
-                <tr>
-                  <th *ngFor="let val of header">{{val}}</th>
-                </tr>
-              </thead>
-            <tbody>
-            <tr *ngFor="let row of data">
-                <!-- <td *ngFor="let val of row">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="{{val}}">
-                </td> -->
-                <td>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[0]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[1]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[2]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[3]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[4]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[5]}}" required>
-                </td>
-                <td>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{row[6]}}" required>
-                </td>
-                
-            </tr>
-        </tbody>
-        </table>
     </div>
 </div>

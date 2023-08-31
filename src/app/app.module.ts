@@ -18,6 +18,7 @@ import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { HelpPageComponent } from './Pages/help-page/help-page.component';
 import { StructureComponent } from './Pages/structure/structure.component';
 import { UploadComponent } from './Pages/upload/upload.component';
+import { OrganizationComponent } from './Pages/organization/organization.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UploadComponent } from './Pages/upload/upload.component';
     PropertProfileComponent,
     HelpPageComponent,
     StructureComponent,
-    UploadComponent
+    UploadComponent,
+    OrganizationComponent
   ],
   imports: [
     BrowserModule,

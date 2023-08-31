@@ -14,7 +14,7 @@ export class UploadComponent {
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';
   header: any[] = []
-  tabs = ['Tab 1', 'Tab 2', 'Tab 3'];
+  tabs: string[] = [];
   activeTab = this.tabs[0];
 
   setActiveTab(tab: string) {
@@ -33,19 +33,15 @@ export class UploadComponent {
 
       /* grab first sheet */
       const wsname: string = wb.SheetNames[0];
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+      this.tabs = wb.SheetNames;
+      this.activeTab = this.tabs[0];
+      const ws: XLSX.WorkSheet = wb.Sheets;
+      console.log(this.tabs);
 
       /* save data */
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
-      this.header = this.data.splice(0,1)[0];
-      console.log("data:",this.data);
-      this.data.map(res=>{
-        // if(res[0] === "no"){
-        //   console.log(res[0]);
-        // }else{
-        //   console.log(res[0]);
-        // }
-      })
+      //this.header = this.data.splice(0,1)[0];
+      console.log(this.data);
     };
     reader.readAsBinaryString(target.files[0]);
   }

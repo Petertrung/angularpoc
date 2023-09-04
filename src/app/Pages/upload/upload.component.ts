@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import * as XLSX from 'xlsx';
 
-type AOA = any[][];
 
 @Component({
   selector: 'app-upload',
@@ -10,12 +9,14 @@ type AOA = any[][];
   styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent {
-  data: AOA = [];
+  data: any = [];
+  rawData: any = [];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';
   header: any[] = []
   tabs: string[] = [];
   activeTab = this.tabs[0];
+  sheets: any = [];
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
@@ -32,16 +33,17 @@ export class UploadComponent {
       const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
 
       /* grab first sheet */
-      const wsname: string = wb.SheetNames[0];
       this.tabs = wb.SheetNames;
       this.activeTab = this.tabs[0];
-      const ws: XLSX.WorkSheet = wb.Sheets;
-      console.log(this.tabs);
+        wb.SheetNames.forEach((sheetName: string) => {
+        const sheet: any = wb.Sheets[sheetName];
+        //console.log(sheet)
+        this.sheets.push(XLSX.utils.sheet_to_json(sheet, { header: 1, range: undefined }));
+      });
 
-      /* save data */
-      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
-      //this.header = this.data.splice(0,1)[0];
-      console.log(this.data);
+      this.data = this.sheets
+      this.rawData = wb.Sheets;
+
     };
     reader.readAsBinaryString(target.files[0]);
   }

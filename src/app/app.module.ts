@@ -19,6 +19,7 @@ import { HelpPageComponent } from './Pages/help-page/help-page.component';
 import { StructureComponent } from './Pages/structure/structure.component';
 import { UploadComponent } from './Pages/upload/upload.component';
 import { OrganizationComponent } from './Pages/organization/organization.component';
+import { UploadformComponent } from './Pages/upload/components/uploadform..component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { OrganizationComponent } from './Pages/organization/organization.compone
     HelpPageComponent,
     StructureComponent,
     UploadComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    UploadformComponent
   ],
   imports: [
     BrowserModule,

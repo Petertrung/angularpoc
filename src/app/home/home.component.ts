@@ -1,5 +1,6 @@
 import { Component , Renderer2} from '@angular/core';
 import { Router, UrlSegment } from '@angular/router';
+import { UtilityService } from '../utility.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Router, UrlSegment } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(private renderer: Renderer2, private router: Router, private util:UtilityService) {}
 
   path: string | null = null;
 
@@ -29,6 +30,6 @@ export class HomeComponent {
   }
   }
   signOut(){
-    
+    this.util.updateRoute('/login')
   }
 }

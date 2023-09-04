@@ -1,0 +1,24 @@
+
+<div class="tab-content">
+    <div  class="tab-pane active">
+        <ng-container *ngFor="let row of newData" >
+            <table class="table" *ngIf="activeTab === row.name">
+                <!-- <thead>
+                    <tr>
+                        <th *ngFor="let val of header">{{val}}</th>
+                    </tr>
+                    </thead> -->
+                <tbody>
+                <tr *ngFor="let items of row.data">
+                    {{row}}
+                    <td *ngFor="let item of items">
+                        {{item}}
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please fill info" value="{{item}}" required>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </ng-container>
+    </div> 
+</div>
+
